@@ -15,7 +15,7 @@ posts = [
     {
         'author':'Soumya',
         'title':'Blog Post 2',
-        'content':'second Blog Content',
+        'content':'Second Blog Content',
         'data_publish':'14 January 1979',
     },
 ]
