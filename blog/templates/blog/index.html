@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    {% if title %}
+    <title>Django Blog - {{ title }}</title>
+    {% else %}
+    <title>Djnago Blog</title>
+    {% endif %}
+
+    
+</head>
+<body>
+    {% for post in posts %}
+        <h1>{{ post.title }}</h1>
+        <small>By {{ post.author }}  Created on {{ post.data_publish }}</small>
+        <p>{{ post.content }}</p>
+      
+    {% endfor %}
+</body>
+</html>
