@@ -15,6 +15,9 @@
       </div>
       <h2 class="article-title">{{ object.title }}</h2>
       <p class="article-content">{{ object.content }}</p>
+      <br>
+      <br>
+      <p>Back to : <a class="btn btn-outline-secondary btn-sm" href="{% url 'blog-home' %}">All Articles</a></p>
     </div>
   </article>
 {% endblock content %}

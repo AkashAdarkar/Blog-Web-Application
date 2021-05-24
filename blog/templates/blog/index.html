@@ -2,10 +2,10 @@
 {% extends 'blog/base.html' %}
 
 
-{% block content %}
 
-{% for post in posts %}
-<article class="media content-section">
+
+
+<!--<article class="media content-section">
   <img class = " rounded-circle article-img"src="{{ post.author.profile.image.url }}" alt="">
     <div class="media-body">
       <div class="article-metadata">
@@ -15,9 +15,38 @@
       <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
       <p class="article-content">{{ post.content }}</p>
     </div>
-  </article>
+  </article>-->
+ 
+{% block title %}Posts{% endblock title %}
+
+{% block content %}
+{% for post in posts %}
+
   
-{% endfor %}
+    <div class=" card " >
+      <div class="  card-header ">
+        <img class = " rounded-circle article-img"src="{{ post.author.profile.image.url }}" alt="">
+        <a  class = "article-title"href="{% url 'post-detail' post.pk %}" ><span class="font-weight-bold ">{{ post.title }}</span> &middot;</a>
+       <span class="text-muted">by  <a href="{% url 'profile' %}">{{ post.author }} </a>| {{ post.post_posted|date:'d F Y' }}</span>
+      </div>
+      <div class="card-body">
+        
+        {{ post.content|safe|truncatewords:"80"|linebreaks }}
+        {%ifnotequal post.content post.content|truncatewords:80%}
+          <a class="btn btn-outline-info btn-sm"  href="{% url 'post-detail' post.pk %}">Read more</a>
+        {% endifnotequal %}
+      </div>
+      <!--<div class="card-footer text-center text-muted">
+        <a href="#">Edit</a> |
+        <a href="#">Delete</a>
+      </div>-->
+    </div>
+    <br />
+   
+  
+  {% endfor %}
+
+
 {% if is_paginated %}
 
       {% if page_obj.has_previous %}

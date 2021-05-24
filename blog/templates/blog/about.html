@@ -1,5 +1,15 @@
 {% extends 'blog/base.html' %}
 
+{% block title %}Home{% endblock title %}
+
 {% block content %}
-    <h1>About Page</h1>
+  <br/>
+  <div class="jumbotron">
+    <h1 class="display-4">Newspaper app</h1>
+    <p class="lead">A Newspaper website built with Django.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="{% url 'blog-home' %}"
+      role="button">View All Articles</a>
+    </p>
+  </div>
 {% endblock content %}
